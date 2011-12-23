@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+	
+
+
+
+<LinearLayout android:id="@+id/LinearLayout01" 
+    android:layout_width="fill_parent" 
+    android:layout_height="fill_parent" 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:gravity="center"
+    >
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <Button
+            android:minWidth="150dp"
+            android:id="@+trip/STARTEDIT"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="START" />
+
+        <Button
+            android:id="@+trip/PAUSERESUME"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="PAUSE" />
+
+        <Button
+            android:id="@+trip/STOP"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="STOP" />
+
+    </LinearLayout>
+    
+</LinearLayout>

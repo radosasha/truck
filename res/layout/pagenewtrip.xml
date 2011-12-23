@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+    
+    
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        >
+                <TextView 
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
+                    android:layout_weight="2"
+                    android:textSize="20dp"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:text="New Trip"
+                    ></TextView>
+</LinearLayout>
+        <ScrollView
+            
+            android:id="@+id/linearLayout13"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+            
+            <LinearLayout
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:id="@+id/linearLayout3"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
+                android:orientation="vertical" >
+            
+
+            <LinearLayout
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:id="@+id/linearLayout3"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical" >
+                
+                
+                
+                <LinearLayout
+                    android:id="@+id/linearLayout4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <LinearLayout
+                        android:paddingRight="10dp"
+                        android:id="@+id/linearLayout5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical" >
+
+                        <LinearLayout
+                            android:id="@+id/linearLayout6"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical" >
+
+                            <TextView
+                                android:id="@+id/textView2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right"
+                                android:text="Trip ID" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/linearLayout7"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical" >
+
+                            <TextView
+                                android:id="@+id/textView3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right"
+                                android:text="Date" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/linearLayout8"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical" >
+
+                            <TextView
+                                android:id="@+id/textView3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right"
+                                android:text="Odometer" />
+                        </LinearLayout>
+                        
+                        <LinearLayout
+                            android:id="@+id/linearLayout8"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical" >
+
+                            <TextView
+                                android:id="@+id/textView3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right"
+                                android:text="Destination" />
+                        </LinearLayout>
+                        
+                        
+                        
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linearLayout9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" >
+
+                        <LinearLayout
+                            android:id="@+id/linearLayout12"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical" >
+
+                            <EditText
+                                android:id="@+newtrip/tripid"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="textPersonName" />
+                        </LinearLayout>
+                        
+                        <LinearLayout
+                            android:id="@+id/linearLayout11"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" >
+
+                            <EditText
+                                android:id="@+newtrip/date"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:minWidth="120dp"
+                                android:focusableInTouchMode="false"
+                                android:inputType="textPersonName" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/linearLayout12"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical" >
+
+                            <EditText
+                                android:id="@+newtrip/odometer"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="textPersonName" />
+                        </LinearLayout>
+                        
+                        <LinearLayout
+                            android:id="@+id/linearLayout12"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical" >
+
+                            <EditText
+                                android:id="@+newtrip/destination"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="textPersonName" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                    
+                <LinearLayout
+                    android:id="@+id/linearLayout14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="20dp" >
+
+                     <TextView
+                         android:gravity="center"
+                         android:id="@+id/editText3"
+                         android:layout_width="180dp"
+                         android:layout_height="wrap_content"
+                         android:text="MEMO"
+                          />
+
+                </LinearLayout>
+                    
+                <LinearLayout
+                    android:id="@+id/linearLayout14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                     <EditText
+                         android:id="@+newtrip/memo"
+                         android:layout_width="180dp"
+                         android:layout_height="91dp"
+                         android:inputType="textPersonName" />
+
+                </LinearLayout>
+                    
+                <LinearLayout
+                    android:id="@+id/linearLayout14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="20dp" >
+
+                    <Button
+                        android:minWidth="100dp"
+                        android:id="@+newtrip/ok"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="OK" />
+                    <Button
+                        android:minWidth="100dp"
+                        android:id="@+newtrip/cancel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="CANCEL" />
+                    
+                </LinearLayout>
+            </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+</LinearLayout>
