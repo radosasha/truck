@@ -376,13 +376,17 @@ public class ReportSender {
 		int sendFlag = historyRep.getInt(0);
 		String repTripName = historyRep.getString(1);
 		historyRep.close();
+		closeDB();
+		
+		// message 
 		Message changeTitle = new Message();
 		Bundle data = new Bundle();
 		data.putInt("cmnd", 3);
 		data.putString("title", "Sending report '"+repTripName+"'");
 		changeTitle.setData(data);
 		sendReportHandler.sendMessage(changeTitle);
-		closeDB();
+		
+		
 		while (sendFlag != -1 & sendFlag != 3) {
 			switch (sendFlag) {			
 			// send start command
@@ -444,6 +448,13 @@ public class ReportSender {
 		}
 	}
 	
+	Message setBodyMessage(int cmnd){
+		Message mmm = new Message();
+		Bundle messageData =  new Bundle();
+		messageData.putInt("cmnd", cmnd);
+		mmm.setData(messageData);
+		return mmm;
+	}
 	
 	// FIX 
 	// json parser
