@@ -2,17 +2,176 @@ package com.truck.alexander;
 
 
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+import com.truck.alexander.addedit.PageCheckPAdd;
+import com.truck.alexander.addedit.PageCheckPEdit;
+import com.truck.alexander.addedit.PageFuelAdd;
+import com.truck.alexander.addedit.PageFuelEdit;
+import com.truck.alexander.db.DBConnector;
+
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.AdapterView.OnItemClickListener;
 
 public class TabCheckPoint extends Activity {
-	/** Called when the activity is first created. */
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+	Context ct;
+	// db fields
+			SQLiteDatabase db;
+			DBConnector dbOpenHelper;
+	// list data
+	   static HashMap<String, Object> map = null;
+	   static SimpleAdapter adapter = null;
+	   static List<HashMap<String, Object>> fillMaps = null;
+		Button addCheckP;
+		/** Called when the activity is first created. */
+		@Override
+		public void onCreate(Bundle savedInstanceState) {
+			super.onCreate(savedInstanceState);
+			Log.e("FUEL", "ON CREATE");
+			/* Second Tab Content */
+			setContentView(R.layout.tabcheckpoint);
+			 // create the grid item mapping
+			ct = this;
+			
+			ListView lv = (ListView)findViewById(R.tabcheckpoint.checkpointlist);
+	        String[] from = new String[] {"rowid0","rowid1","rowid2"};
+	        int[] to = new int[] { 
+	        		R.listcheckp.date , 
+	        		R.listcheckp.city, 
+	        		R.listcheckp.memo, 
+	        		};
+	        fillMaps =  new ArrayList<HashMap<String, Object>>();
+	        adapter = new SimpleAdapter(this, fillMaps, R.layout.listcheckpoint, from, to);
+	        lv.setAdapter(adapter);
+	        lv.setOnItemClickListener(adapterListener);
+	        adapter.notifyDataSetChanged();
+	        
+	        // set button click listener
+	        addCheckP = (Button)findViewById(R.tabcheckpoint.add);
+	        addCheckP.setOnClickListener(new View.OnClickListener() {			
+				@Override
+				public void onClick(View v) {
+					if(!PageMainGUI.TRIP_STARTED) {
+						toast("Trip not started");
+						return;
+					}	
+					Intent ite= new Intent();
+					ite.setClass(TabCheckPoint.this,PageCheckPAdd.class);
+					startActivityForResult(ite,1);
+				}
+			});
+	        
+	     // fill "fuel" list if some data already exist
+			if(!PageMainGUI.TRIP_STARTED )return;
+			openDB();
+			TabTrip.updateTabLists(adapter, fillMaps, "checkp",3,dbOpenHelper,db);
+			closeDB();	        
+		}
+		
+		OnItemClickListener adapterListener = new OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+					long arg3) {
+				showQuestions(arg2);
+			}
+		};
+		
+		private void showQuestions(final int item) {
+			AlertDialog.Builder alertbox = new AlertDialog.Builder(ct);
+			alertbox.setTitle("Edit/Remove");
+			alertbox.setMessage("Confirm action");
+			
+			alertbox.setPositiveButton("Edit",
+					new DialogInterface.OnClickListener() {
+						public void onClick(DialogInterface arg0, int arg1) {
+							Intent it = new Intent();
+							it.setClass(TabCheckPoint.this,PageCheckPEdit.class);
+							it.putExtra("item", item);
+							startActivityForResult(it,TabFuel.EDIT_OK);
+						}
+					});
+			alertbox.setNeutralButton("Remove",
+					new DialogInterface.OnClickListener() {
+						public void onClick(DialogInterface arg0, int arg1) {
+							openDB();
+							Cursor cr = dbOpenHelper.select(db, "checkp" + PageMainGUI.tripid);
+							cr.moveToPosition(item);
+							String id = cr.getString(3);
+							cr.close();
+							String sql = "delete from checkp" + PageMainGUI.tripid + " where id = " + id;
+							Log.e("QUERY", sql);
+							db.execSQL(sql);
+							fillMaps.remove(item);
+							adapter.notifyDataSetChanged();
+							closeDB();
+						}
+					});
 
-		/* Second Tab Content */
-		setContentView(R.layout.tabcheckpoint);
+			alertbox.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+				public void onClick(DialogInterface arg0, int arg1) {
+				}
+			});
+			alertbox.show();
+		}
+		
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		Log.e("RESULT", "HERE");
+		if (resultCode == RESULT_CANCELED)	return;
+		
+		HashMap<String, String> hConfig = (HashMap<String, String>) data.getSerializableExtra("data");
+
+		map = new HashMap<String, Object>();
+		map.put("rowid0", hConfig.get("date"));
+		map.put("rowid1", hConfig.get("city"));
+		map.put("rowid2", hConfig.get("memo"));
+		switch (resultCode) {
+		case TabFuel.RESULT_OK:
+			fillMaps.add(map);
+			break;
+		case TabFuel.EDIT_OK:
+			fillMaps.set(Integer.parseInt(hConfig.get("item")), map);
+		}
+		adapter.notifyDataSetChanged();
 	}
-}
+		
+		static void clearList(){
+			fillMaps.clear();
+			if(adapter!=null)adapter.notifyDataSetChanged();
+		}
+		
+		private void toast(String msg) {
+			Toast.makeText(TabCheckPoint.this, msg, Toast.LENGTH_SHORT).show();	
+		}	
+		
+		void openDB() {
+			dbOpenHelper = new DBConnector(this);
+			// open connection
+			db = dbOpenHelper.getWritableDatabase();
+		}
+
+		void closeDB() {
+			// close connection
+			db.close();
+			dbOpenHelper.close();		
+		}
+		
+	}

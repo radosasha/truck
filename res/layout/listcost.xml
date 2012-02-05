@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:id="@+id/LinearLayout01"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="vertical" 
+	    android:background="@drawable/my_drawable"
+	    >
+
+	    <LinearLayout
+	        android:paddingLeft="10dp"
+	        android:paddingRight="10dp"
+	        android:id="@+id/linearLayout1"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="0.12" >
+
+	        <LinearLayout
+	            android:id="@+id/linearLayout2"
+	            android:layout_width="match_parent"
+	            android:layout_height="fill_parent"
+	            android:layout_weight="1"
+	            android:orientation="vertical" >
+
+	            <TextView
+	                android:textSize="20dp"
+	                android:id="@+listcost/service"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:text="Large Text"
+	                android:textColor="#FFFFFF"
+	                />
+
+	            <LinearLayout
+	                android:id="@+id/linearLayout6"
+	                android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_gravity="left">
+
+	                <LinearLayout
+	                    android:id="@+id/linearLayout7"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="fill_parent"
+	                    android:orientation="vertical" >
+
+	                    <TextView
+	                        android:textSize="12dp"
+	                        android:id="@+listcost/miles"
+	                        android:layout_width="wrap_content"
+	                        android:layout_height="fill_parent"
+	                        android:text="Large Text"
+	                        android:textColor="#B9D3EE"
+	                        android:textStyle="bold" 
+	                        android:gravity="bottom"/>
+
+	                    
+	                </LinearLayout>
+
+
+	            </LinearLayout>
+
+	        </LinearLayout>
+
+	        <LinearLayout
+	            android:id="@+id/linearLayout3"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="right"
+	            android:orientation="vertical" >
+
+	            <LinearLayout
+	                android:id="@+id/linearLayout4"
+	                android:layout_width="match_parent"
+	                android:layout_height="wrap_content"
+	                android:layout_weight="1"
+	                android:orientation="vertical" >
+
+	                <TextView
+	                    android:textSize="20dp"
+	                    android:id="@+listcost/date"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:layout_gravity="right"
+	                    android:text="TextView" 
+	                    android:textColor="#FFFFFF"
+	                    />
+
+	            </LinearLayout>
+
+	            <LinearLayout
+	                android:id="@+id/linearLayout5"
+	                android:layout_width="match_parent"
+	                android:layout_height="wrap_content"
+	                android:orientation="vertical" >
+
+	                <TextView
+	                    android:textSize="20dp"
+	                    android:textColor="#17b919"
+	                    android:id="@+listcost/totalcost"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:layout_gravity="right"
+	                    android:text="Large Text" />
+
+	            </LinearLayout>
+	        </LinearLayout>
+
+	    </LinearLayout>
+
+	    <LinearLayout
+	        android:id="@+id/linearLayout9"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:paddingLeft="5dp"
+	        android:paddingRight="5dp"
+	        android:layout_weight="0.12" >
+
+	        <LinearLayout
+	            android:id="@+id/linearLayout10"
+	            android:layout_width="fill_parent"
+	            android:layout_height="match_parent" 
+	            android:background="@drawable/down"
+	            >
+	        </LinearLayout>
+
+	    </LinearLayout>
+
+	    <LinearLayout
+	        android:paddingLeft="10dp"
+	        android:paddingRight="10dp"
+	        android:id="@+id/linearLayout11"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="0.12" >
+
+	        <TextView
+	            android:id="@+listcost/memo"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:textColor="#6C7B8B"
+	            android:textStyle="bold" 
+	            android:text="TextView" />
+
+	    </LinearLayout>
+
+	</LinearLayout>

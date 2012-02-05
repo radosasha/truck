@@ -12,30 +12,75 @@
         <activity
             android:label="@string/app_name"
             android:name=".PageAuthorization" >
-            <intent-filter >
-                <action android:name="android.intent.action.MAIN"  android:configChanges="orientation|keyboardHidden|keyboard"/>
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            
         </activity>
         <activity android:configChanges="orientation|keyboardHidden|keyboard"
             android:label="@string/app_name"
             android:name=".PageMainGUI" >
-            <intent-filter >
+            
+        </activity>    
+        
+            <activity android:configChanges="orientation|keyboardHidden|keyboard"
+            android:label="@string/app_name"
+            android:name=".StartPage" >
+             <intent-filter >
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
+        </activity>  
+            
+        <activity android:configChanges="orientation|keyboardHidden|keyboard"
+            android:label="@string/app_name"
+            android:name=".PageAuthorization" >
+        </activity>   
+        <activity android:configChanges="orientation|keyboardHidden|keyboard"
+            android:label="@string/app_name"
+            android:name=".MenuOptions" >
+        </activity>      
         
+        <service 
+            android:enabled="true" 
+            android:name=".modules.ReceiveCoordinateModule"> 
+        </service> 
+         <service 
+            android:enabled="true" 
+            android:name=".modules.ReportsService"> 
+        </service> 
+            
+        <receiver android:name=".MyReceiver">  
+            <intent-filter>  
+                <action android:name="android.intent.action.BOOT_COMPLETED" /> 
+            </intent-filter>  
+        </receiver> 
+    <activity android:name=".PageAuthorization2" android:configChanges="orientation|keyboardHidden|keyboard" />
      <activity android:name=".PageRegistration" android:configChanges="orientation|keyboardHidden|keyboard"/>
-     <activity android:name=".PageNewTrip" android:configChanges="orientation|keyboardHidden|keyboard"/>
+     <activity android:name="com.truck.alexander.addedit.PageNewTrip" android:configChanges="orientation|keyboardHidden|keyboard"/>
     <activity android:name=".TabTrip" android:configChanges="orientation|keyboardHidden|keyboard"/>
 	<activity android:name=".TabFuel" android:configChanges="orientation|keyboardHidden|keyboard"/>
 	<activity android:name=".TabCost" android:configChanges="orientation|keyboardHidden|keyboard"/>
 	<activity android:name=".TabCheckPoint" android:configChanges="orientation|keyboardHidden|keyboard"/>
-	<activity android:name=".PageNewTripEdit" android:configChanges="orientation|keyboardHidden|keyboard"/>
+	<activity android:name="com.truck.alexander.addedit.PageNewTripEdit" android:configChanges="orientation|keyboardHidden|keyboard"/>
+	<activity android:name="com.truck.alexander.addedit.PageFuelEdit" android:configChanges="orientation|keyboardHidden|keyboard"/>
+	<activity android:name="com.truck.alexander.addedit.PageFuelAdd" android:configChanges="orientation|keyboardHidden|keyboard"/>
+	<activity android:name="com.truck.alexander.addedit.PageCostEdit" android:configChanges="orientation|keyboardHidden|keyboard"/>
+	<activity android:name="com.truck.alexander.addedit.PageCostAdd" android:configChanges="orientation|keyboardHidden|keyboard"/>
+	<activity android:name="com.truck.alexander.addedit.PageCheckPEdit" android:configChanges="orientation|keyboardHidden|keyboard"/>
+	<activity android:name="com.truck.alexander.addedit.PageCheckPAdd" android:configChanges="orientation|keyboardHidden|keyboard"/>
+	<activity android:name=".ReportsStorage" android:configChanges="orientation|keyboardHidden|keyboard"/>
 	
     </application>
-
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission> 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>  <!-- надо -->
+    <uses-permission android:name="android.permission.ACCESS_LOCATION"/> <!-- надо -->
+    <uses-permission android:name="android.permission.ACCESS_GPS"/>   
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"></uses-permission>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/> <!-- надо -->
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" /> 
+     <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />  <!-- надо -->
+     <uses-permission android:name="android.permission.CONTROL_LOCATION_UPDATES" /> 
+     <uses-permission android:name="android.permission.VIBRATE"/>
 </manifest>

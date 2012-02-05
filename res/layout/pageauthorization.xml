@@ -71,11 +71,11 @@
                             android:orientation="vertical" >
 
                             <TextView
-                                android:id="@+id/textView2"
+                                android:id="@+auth1/companyid"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="right"
-                                android:text="Unit ID" />
+                                android:text="Company ID" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -87,11 +87,11 @@
                             android:orientation="vertical" >
 
                             <TextView
-                                android:id="@+id/textView3"
+                                android:id="@+auth1/unitid"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="right"
-                                android:text="Driver ID" />
+                                android:text="Unit ID" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -103,11 +103,11 @@
                             android:orientation="vertical" >
 
                             <TextView
-                                android:id="@+id/textView3"
+                                android:id="@+auth1/unitpin"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="right"
-                                android:text="Pin Number" />
+                                android:text="Unit Pin Number" />
                         </LinearLayout>
                         
                        
@@ -129,10 +129,12 @@
                             android:orientation="vertical" >
 
                             <EditText
-                                android:id="@+id/editText1"
+                                android:id="@+auth1et/companyid"
                                 android:layout_width="114dp"
                                 android:layout_height="wrap_content"
-                                android:inputType="textPersonName" >
+                                android:inputType="textPersonName" 
+                                android:text="8"
+                                >
 
                                 <requestFocus />
                             </EditText>
@@ -144,11 +146,13 @@
                             android:layout_height="wrap_content" >
 
                             <EditText
-                                android:id="@+id/editText2"
+                                android:id="@+auth1et/unitid"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:inputType="textPersonName" />
+                                android:inputType="textPersonName" 
+                                android:text="10"
+                                />
                         </LinearLayout>
 
                         <LinearLayout
@@ -158,10 +162,12 @@
                             android:orientation="vertical" >
 
                             <EditText
-                                android:id="@+id/editText3"
+                                android:id="@+auth1et/unitpin"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:inputType="textPersonName" />
+                                android:inputType="textPassword" 
+                                android:text="123456"
+                                />
                         </LinearLayout>
                         
                         
@@ -177,14 +183,14 @@
 
                     <Button
                         android:minWidth="100dp"
-                        android:id="@+id/button1"
+                        android:id="@+auth1/confirm"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:text="Confirm" />
 
                     <Button
                         android:minWidth="100dp"
-                        android:id="@+id/button2"
+                        android:id="@+auth1/reg"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Registration" />

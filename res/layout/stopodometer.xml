@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    >
+    
+    
+    <EditText 
+        android:id="@+stop/etodometer"
+        android:text=""
+        android:gravity="center"
+        android:maxWidth="70dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:paddingBottom="15dp"
+        />
+    
+    <TextView 
+        android:id="@+stop/date"
+        android:gravity="center"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="15dp"
+        />
+
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingBottom="15dp"
+        >
+        <Button
+            android:id="@+stop/ok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Confirm stop" />
+        <Button
+            android:id="@+stop/cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Cancel stop" />
+    </LinearLayout>
+
+</LinearLayout>

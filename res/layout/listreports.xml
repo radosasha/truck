@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:id="@+id/LinearLayout01"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="vertical" 
+	    android:background="@drawable/my_drawable"
+	    >
+
+	    
+
+	    <LinearLayout
+	        android:gravity="center_vertical"
+	        android:id="@+id/linearLayout9"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:minHeight="40dp"
+	        android:minWidth="40dp"
+	        android:paddingLeft="5dp"
+	        android:paddingRight="5dp" >
+	        <TextView
+	            android:id="@+listreports/text"
+	            android:paddingLeft="5dp"
+	            android:text=""
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	        ></TextView>
+	    </LinearLayout>
+
+	    
+
+	</LinearLayout>

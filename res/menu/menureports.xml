@@ -1,0 +1,8 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+menu/send"
+        android:title="Send All"
+        android:icon="@drawable/icon" />
+    <item android:id="@+menu/remove"
+        android:title="Remove All"
+        android:icon="@drawable/icon" />    
+</menu> 

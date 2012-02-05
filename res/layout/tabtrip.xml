@@ -1,41 +1,250 @@
 <?xml version="1.0" encoding="utf-8"?>
-	
-
-
 
 <LinearLayout android:id="@+id/LinearLayout01" 
     android:layout_width="fill_parent" 
     android:layout_height="fill_parent" 
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:gravity="center"
+    android:orientation="vertical"
     >
 
+    <ScrollView
+            
+            android:id="@+id/linearLayout13"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+            
+            <LinearLayout
+               
+                android:id="@+id/linearLayout3"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
+                android:orientation="vertical" >
     <LinearLayout
-        android:id="@+id/linearLayout1"
         android:gravity="center"
+        android:layout_gravity="center"
+        android:id="@+id/linearLayout1"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="fill_parent"
         android:orientation="vertical" >
 
         <Button
             android:minWidth="150dp"
             android:id="@+trip/STARTEDIT"
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:text="START" />
 
         <Button
             android:id="@+trip/PAUSERESUME"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_height="wrap_content"
             android:text="PAUSE" />
 
         <Button
             android:id="@+trip/STOP"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_height="wrap_content"
             android:text="STOP" />
 
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:orientation="vertical" android:layout_height="wrap_content" android:layout_width="wrap_content">
+
+        <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+test/lastcoord"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="последняя отправка коорд.:    "/>
+
+        <TextView
+            android:id="@+test/lastcoord2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="    " />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/LinearLayout05"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+test/coordacc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="погр. координаты:   "/>
+
+        <TextView
+            android:id="@+test/coordacc2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="   "/>
+    </LinearLayout>
+        
+    <LinearLayout
+        android:id="@+id/LinearLayout01"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+test/coordcount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Колич. коорд.:   "/>
+
+        <TextView
+            android:id="@+test/coordcount2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="   "/>
+    </LinearLayout>
+
     
+
+    <LinearLayout
+        android:id="@+id/LinearLayout02"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+test/address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Текущ. адрес:   "/>
+
+        <TextView
+            android:id="@+test/address2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="   " />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/LinearLayout03"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+test/currspeed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Текущ. скорость:   "/>
+
+        <TextView
+            android:id="@+test/currspeed2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="   "/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/LinearLayout04"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+test/summspeed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Средн. скор.:   "/>
+
+        <TextView
+            android:id="@+test/summspeed2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="   " />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/LinearLayout04"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+test/trip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Пройдено:   "/>
+
+        <TextView
+            android:id="@+test/trip2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="   " />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/LinearLayout04"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+test/freq"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Частота получения коорд.:   "/>
+
+        <TextView
+            android:id="@+test/trip2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="   " />
+    </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" 
+        android:gravity="center"
+        >
+    <Button
+        android:minWidth="100dp"
+        android:id="@+test/refresh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Refresh" />
+<Button
+        android:minWidth="100dp"
+        android:id="@+test/showDB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="show db" />
+<EditText 
+    android:minWidth="100dp"
+        android:id="@+test/showtext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+    />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+test/trace"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            />
+
+    </LinearLayout>
+
+    </LinearLayout>
+    </ScrollView>
 </LinearLayout>

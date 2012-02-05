@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         >
                 <TextView 
-                    android:paddingTop="20dp"
+                    android:paddingTop="10dp"
                     android:paddingBottom="20dp"
                     android:layout_weight="2"
                     android:textSize="20dp"
@@ -29,8 +29,6 @@
             android:orientation="vertical" >
             
             <LinearLayout
-                android:gravity="center"
-                android:layout_gravity="center"
                 android:id="@+id/linearLayout3"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
@@ -175,7 +173,8 @@
                                 android:id="@+newtrip/odometer"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:inputType="textPersonName" />
+                                android:inputType="number"
+                                />
                         </LinearLayout>
                         
                         <LinearLayout
@@ -183,7 +182,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical" >
-
+                            
                             <EditText
                                 android:id="@+newtrip/destination"
                                 android:layout_width="match_parent"
@@ -207,6 +206,7 @@
                          android:layout_width="180dp"
                          android:layout_height="wrap_content"
                          android:text="MEMO"
+                         android:inputType="textPersonName"
                           />
 
                 </LinearLayout>

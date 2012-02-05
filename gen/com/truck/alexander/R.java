@@ -10,59 +10,256 @@ package com.truck.alexander;
 public final class R {
     public static final class attr {
     }
+    public static final class auth1 {
+        public static final int companyid=0x7f0d0000;
+        public static final int confirm=0x7f0d0003;
+        public static final int reg=0x7f0d0004;
+        public static final int unitid=0x7f0d0001;
+        public static final int unitpin=0x7f0d0002;
+    }
+    public static final class auth1et {
+        public static final int companyid=0x7f0e0000;
+        public static final int unitid=0x7f0e0001;
+        public static final int unitpin=0x7f0e0002;
+    }
+    public static final class auth2 {
+        public static final int cancel=0x7f0f0005;
+        public static final int confirm=0x7f0f0004;
+        public static final int driverid1=0x7f0f0000;
+        public static final int driverid2=0x7f0f0002;
+        public static final int pin1=0x7f0f0001;
+        public static final int pin2=0x7f0f0003;
+    }
+    public static final class auth2et {
+        public static final int dr1=0x7f100000;
+        public static final int dr1pin=0x7f100001;
+        public static final int dr2=0x7f100002;
+        public static final int dr2pin=0x7f100003;
+    }
+    public static final class checkpedit {
+        public static final int cancel=0x7f120004;
+        public static final int city=0x7f120001;
+        public static final int date=0x7f120000;
+        public static final int memo=0x7f120002;
+        public static final int ok=0x7f120003;
+    }
+    public static final class checkpointadd {
+        public static final int cancel=0x7f110004;
+        public static final int city=0x7f110001;
+        public static final int date=0x7f110000;
+        public static final int memo=0x7f110002;
+        public static final int ok=0x7f110003;
+    }
+    public static final class color {
+        public static final int black=0x7f040004;
+        public static final int blue=0x7f040002;
+        public static final int green=0x7f040001;
+        public static final int red=0x7f040000;
+        public static final int white=0x7f040003;
+    }
+    public static final class costadd {
+        public static final int cancel=0x7f130006;
+        public static final int date=0x7f130000;
+        public static final int memo=0x7f130004;
+        public static final int odometer=0x7f130002;
+        public static final int ok=0x7f130005;
+        public static final int title=0x7f130001;
+        public static final int totalcost=0x7f130003;
+    }
+    public static final class costedit {
+        public static final int cancel=0x7f140006;
+        public static final int date=0x7f140000;
+        public static final int memo=0x7f140004;
+        public static final int odometer=0x7f140002;
+        public static final int ok=0x7f140005;
+        public static final int title=0x7f140001;
+        public static final int totalcost=0x7f140003;
+    }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
+        public static final int down=0x7f020000;
+        public static final int ic_launcher=0x7f020001;
+        public static final int icon=0x7f020002;
+        public static final int list_divider=0x7f020003;
+        public static final int my_drawable=0x7f020004;
+        public static final int pattern=0x7f020005;
+    }
+    public static final class fueladd {
+        public static final int cancel=0x7f150007;
+        public static final int date=0x7f150000;
+        public static final int fuel=0x7f150004;
+        public static final int memo=0x7f150005;
+        public static final int odometer=0x7f150001;
+        public static final int ok=0x7f150006;
+        public static final int price=0x7f150002;
+        public static final int totalcost=0x7f150003;
+    }
+    public static final class fueledit {
+        public static final int cancel=0x7f160007;
+        public static final int date=0x7f160000;
+        public static final int fuel=0x7f160004;
+        public static final int memo=0x7f160005;
+        public static final int odometer=0x7f160001;
+        public static final int ok=0x7f160006;
+        public static final int price=0x7f160002;
+        public static final int totalcost=0x7f160003;
     }
     public static final class id {
-        public static final int LinearLayout01=0x7f050013;
-        public static final int button1=0x7f050011;
-        public static final int button2=0x7f050012;
-        public static final int editText1=0x7f05000b;
-        public static final int editText2=0x7f05000d;
-        public static final int editText3=0x7f05000f;
-        public static final int linearLayout1=0x7f050014;
-        public static final int linearLayout10=0x7f05000a;
-        public static final int linearLayout11=0x7f05000c;
-        public static final int linearLayout12=0x7f05000e;
-        public static final int linearLayout13=0x7f050000;
-        public static final int linearLayout14=0x7f050010;
-        public static final int linearLayout3=0x7f050001;
-        public static final int linearLayout4=0x7f050002;
-        public static final int linearLayout5=0x7f050003;
-        public static final int linearLayout6=0x7f050004;
-        public static final int linearLayout7=0x7f050006;
-        public static final int linearLayout8=0x7f050008;
-        public static final int linearLayout9=0x7f050009;
-        public static final int textView2=0x7f050005;
-        public static final int textView3=0x7f050007;
+        public static final int LinearLayout01=0x7f070000;
+        public static final int LinearLayout02=0x7f070017;
+        public static final int LinearLayout03=0x7f070018;
+        public static final int LinearLayout04=0x7f070019;
+        public static final int LinearLayout05=0x7f070016;
+        public static final int button1=0x7f070014;
+        public static final int button2=0x7f070015;
+        public static final int editText1=0x7f070012;
+        public static final int editText2=0x7f070013;
+        public static final int editText3=0x7f070010;
+        public static final int linearLayout1=0x7f070001;
+        public static final int linearLayout10=0x7f070009;
+        public static final int linearLayout11=0x7f07000a;
+        public static final int linearLayout12=0x7f07000d;
+        public static final int linearLayout13=0x7f07000c;
+        public static final int linearLayout14=0x7f07000e;
+        public static final int linearLayout2=0x7f070002;
+        public static final int linearLayout3=0x7f070005;
+        public static final int linearLayout4=0x7f070006;
+        public static final int linearLayout5=0x7f070007;
+        public static final int linearLayout6=0x7f070003;
+        public static final int linearLayout7=0x7f070004;
+        public static final int linearLayout8=0x7f07000b;
+        public static final int linearLayout9=0x7f070008;
+        public static final int textView2=0x7f070011;
+        public static final int textView3=0x7f07000f;
     }
     public static final class layout {
-        public static final int pageauthorization=0x7f030000;
-        public static final int pagenewtrip=0x7f030001;
-        public static final int pageregistration=0x7f030002;
-        public static final int pagetab=0x7f030003;
-        public static final int pagetripedit=0x7f030004;
-        public static final int tabcheckpoint=0x7f030005;
-        public static final int tabcost=0x7f030006;
-        public static final int tabfuel=0x7f030007;
-        public static final int tabtrip=0x7f030008;
+        public static final int listcheckpoint=0x7f030000;
+        public static final int listcost=0x7f030001;
+        public static final int listfuel=0x7f030002;
+        public static final int listreports=0x7f030003;
+        public static final int menuoptions=0x7f030004;
+        public static final int pageauthorization=0x7f030005;
+        public static final int pageauthorization2=0x7f030006;
+        public static final int pagecheckpointadd=0x7f030007;
+        public static final int pagecheckpointedit=0x7f030008;
+        public static final int pagecostadd=0x7f030009;
+        public static final int pagecostedit=0x7f03000a;
+        public static final int pagefueladd=0x7f03000b;
+        public static final int pagefueledit=0x7f03000c;
+        public static final int pagenewtrip=0x7f03000d;
+        public static final int pageregistration=0x7f03000e;
+        public static final int pagetab=0x7f03000f;
+        public static final int pagetripedit=0x7f030010;
+        public static final int repostorage=0x7f030011;
+        public static final int start=0x7f030012;
+        public static final int stopodometer=0x7f030013;
+        public static final int tabcheckpoint=0x7f030014;
+        public static final int tabcost=0x7f030015;
+        public static final int tabfuel=0x7f030016;
+        public static final int tabtrip=0x7f030017;
+    }
+    public static final class listcheckp {
+        public static final int city=0x7f080001;
+        public static final int date=0x7f080000;
+        public static final int memo=0x7f080002;
+    }
+    public static final class listcost {
+        public static final int date=0x7f090002;
+        public static final int memo=0x7f090004;
+        public static final int miles=0x7f090001;
+        public static final int service=0x7f090000;
+        public static final int totalcost=0x7f090003;
+    }
+    public static final class listfuel {
+        public static final int date=0x7f0a0000;
+        public static final int galons=0x7f0a0005;
+        public static final int memo=0x7f0a0007;
+        public static final int miles=0x7f0a0001;
+        public static final int milesplus=0x7f0a0002;
+        public static final int mpg=0x7f0a0006;
+        public static final int price=0x7f0a0004;
+        public static final int totalcost=0x7f0a0003;
+    }
+    public static final class listreports {
+        public static final int text=0x7f0b0000;
+    }
+    public static final class menu {
+        public static final int exit=0x7f060004;
+        public static final int menu=0x7f060000;
+        public static final int menureports=0x7f060001;
+        public static final int options=0x7f060002;
+        public static final int remove=0x7f060006;
+        public static final int reports=0x7f060003;
+        public static final int send=0x7f060005;
     }
     public static final class newtrip {
-        public static final int cancel=0x7f060006;
-        public static final int date=0x7f060001;
-        public static final int destination=0x7f060003;
-        public static final int memo=0x7f060004;
-        public static final int odometer=0x7f060002;
-        public static final int ok=0x7f060005;
-        public static final int tripid=0x7f060000;
+        public static final int cancel=0x7f170006;
+        public static final int date=0x7f170001;
+        public static final int destination=0x7f170003;
+        public static final int memo=0x7f170004;
+        public static final int odometer=0x7f170002;
+        public static final int ok=0x7f170005;
+        public static final int tripid=0x7f170000;
+    }
+    public static final class options {
+        public static final int binddriver1=0x7f0c0003;
+        public static final int binddriver2=0x7f0c0005;
+        public static final int bindunit=0x7f0c0000;
+        public static final int company=0x7f0c0002;
+        public static final int continue2=0x7f0c0007;
+        public static final int currdriver1=0x7f0c0004;
+        public static final int currdriver2=0x7f0c0006;
+        public static final int currunit=0x7f0c0001;
+        public static final int textcontinue=0x7f0c0008;
+    }
+    public static final class reports {
+        public static final int list=0x7f180000;
+    }
+    public static final class stop {
+        public static final int cancel=0x7f190003;
+        public static final int date=0x7f190001;
+        public static final int etodometer=0x7f190000;
+        public static final int ok=0x7f190002;
     }
     public static final class string {
-        public static final int app_name=0x7f040001;
-        public static final int hello=0x7f040000;
+        public static final int app_name=0x7f050001;
+        public static final int hello=0x7f050000;
+    }
+    public static final class tabcheckpoint {
+        public static final int add=0x7f1a0001;
+        public static final int checkpointlist=0x7f1a0000;
+    }
+    public static final class tabcost {
+        public static final int addcost=0x7f1b0001;
+        public static final int costlist=0x7f1b0000;
+    }
+    public static final class tabfuel {
+        public static final int addfuel=0x7f1c0001;
+        public static final int fuellist=0x7f1c0000;
+    }
+    public static final class test {
+        public static final int address=0x7f1e0006;
+        public static final int address2=0x7f1e0007;
+        public static final int coordacc=0x7f1e0002;
+        public static final int coordacc2=0x7f1e0003;
+        public static final int coordcount=0x7f1e0004;
+        public static final int coordcount2=0x7f1e0005;
+        public static final int currspeed=0x7f1e0008;
+        public static final int currspeed2=0x7f1e0009;
+        public static final int freq=0x7f1e000e;
+        public static final int lastcoord=0x7f1e0000;
+        public static final int lastcoord2=0x7f1e0001;
+        public static final int refresh=0x7f1e000f;
+        public static final int showDB=0x7f1e0010;
+        public static final int showtext=0x7f1e0011;
+        public static final int summspeed=0x7f1e000a;
+        public static final int summspeed2=0x7f1e000b;
+        public static final int trace=0x7f1e0012;
+        public static final int trip=0x7f1e000c;
+        public static final int trip2=0x7f1e000d;
     }
     public static final class trip {
-        public static final int PAUSERESUME=0x7f070001;
-        public static final int STARTEDIT=0x7f070000;
-        public static final int STOP=0x7f070002;
+        public static final int PAUSERESUME=0x7f1d0001;
+        public static final int STARTEDIT=0x7f1d0000;
+        public static final int STOP=0x7f1d0002;
     }
 }

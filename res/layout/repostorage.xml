@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/LinearLayout01"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" 
+    android:background="#778899"
+    >
+
+    <LinearLayout
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp"
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+        
+        <ListView 
+            android:background="@drawable/pattern"
+            android:paddingTop="10dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:id="@+reports/list"
+            android:layout_height="fill_parent"
+            android:layout_width="fill_parent"
+            android:dividerHeight="10dp"
+            android:divider="@drawable/list_divider"
+            >            
+        </ListView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" 
+        android:background="#000000"
+        >
+        <TextView 
+            android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+    		android:orientation="vertical" 
+    		android:text="Info:"
+    		></TextView>
+        <TextView 
+            android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+    		android:orientation="vertical" 
+    		android:text="     - LongClick on item to send or delete report"
+    		></TextView>
+        <TextView 
+            android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+    		android:orientation="vertical" 
+    		android:text="     - press 'Menu' to send or delete all report"
+    	></TextView>
+        
+    </LinearLayout>
+
+</LinearLayout>
