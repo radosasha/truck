@@ -160,6 +160,10 @@ public class DBConnector extends SQLiteOpenHelper{
 			"id INTEGER PRIMARY KEY AUTOINCREMENT"+ //8
 					");";
 	           
+
+	private static final String CREATE_SUMM_TRIP_ODOMETER  = 
+			"create table summ ("+
+					"odom REAL )";
 	
 
 	  public DBConnector(Context context) {
@@ -179,6 +183,7 @@ public class DBConnector extends SQLiteOpenHelper{
 		//sqLiteDatabase.execSQL(CREATE_TABLE_FUEL_INFO);
 		//sqLiteDatabase.execSQL(CREATE_TABLE_COST_INFO);
 		//sqLiteDatabase.execSQL(CREATE_TABLE_CHECKPOINT_INFO);
+		sqLiteDatabase.execSQL(CREATE_SUMM_TRIP_ODOMETER);
 		Log.e("БД ", "Таблицы созданы");
 	} 
  
@@ -253,6 +258,8 @@ public class DBConnector extends SQLiteOpenHelper{
 		Log.e("DataBase","DROP TABLE checkp" + tableName);
 		db.execSQL("DROP TABLE coors" + tableName);
 		Log.e("DataBase","DROP TABLE coors" + tableName);
+		db.execSQL("delete from summ");
+		Log.e("DataBase","CLEAR SUMM TABLE");		
 	}
 	
 	@Override
@@ -302,6 +309,8 @@ public class DBConnector extends SQLiteOpenHelper{
 			return 0; // null
 	  }
 	  
+	  //FIX
+	  // autostart
 	  public String getValueByIndex(SQLiteDatabase db,int index){
 		  //0 tripid
 		  //1 date
@@ -371,51 +380,70 @@ public class DBConnector extends SQLiteOpenHelper{
 	 */
 	public String[] getStat(SQLiteDatabase db) {
 		String[] res = new String[8];
+		double avarageDist = 0; // весь пройденый путь, вычисляется из двух таблиц
 		Cursor cursor = db.query("coors"+PageMainGUI.tripid, null, null, null, null, null, null);
 		res[0] = "" + cursor.getCount(); // 0 - количество координат в БД
 		if (Integer.parseInt(res[0]) > 0) {
 			cursor.moveToLast();
-			//res[1] = cursor.getString(0); // x
-			//res[2] = cursor.getString(1); // y
-			res[1] = ReportsService.lastSendedTime;
-			res[3] = cursor.getString(2); // accuracy
-			res[4] = cursor.getString(3); // speed
-			res[5] = cursor.getString(4); // date
-			res[6] = getAverageSpeed(cursor);
-			res[7] = getAverageDistance(cursor);
+			res[1] = cursor.getString(0); // x
+			res[2] = cursor.getString(1); // y
+			//res[3] = ReportsService.lastSendedTime; // время
+			res[4] = cursor.getString(2); // accuracy
+			res[5] = cursor.getString(3); // speed
+			//res[5] = cursor.getString(4); // date
+			//res[6] = getAverageSpeed(cursor);
+			avarageDist = getAverageDistance(cursor);
 		}
 		
 		if (cursor != null && !cursor.isClosed()) {
 			cursor.close();
 		}
+		res[7] = (avarageDist + getSavedDistance(db)) + "";
 		return res;
 	}
+
+	// суммируем сохраненные путииз таблицы 'summ'
+	private double getSavedDistance(SQLiteDatabase db) {
+		Cursor summCursor = db.rawQuery("select * from summ", null);
+		// выйти если нет сохраненных путей
+		if (!summCursor.moveToFirst()) {
+			summCursor.close();
+			return 0;
+		}
+		double summ = 0;
+		do {
+			summ += summCursor.getDouble(0);
+		} while (summCursor.moveToNext());
+		summCursor.close();
+		return summ;
+	}
+
 
 	/*
 	 * cacl average distance between all points in DB
 	 */
-	private String getAverageDistance(Cursor cursor) {
+	public double getAverageDistance(Cursor cursor) {
 		double averageDistance = 0.0; // return value
 		cursor.moveToFirst();
 		if (cursor.getCount() <= 1)
-			return 0.0 + "";
+			return 0;
 		else {
 			while (true) {
 				Location originLocation = new Location("gps");
 				Location destinationLocation = new Location("gps");
 				// point A 
-				originLocation.setLatitude(Double.parseDouble(cursor.getString(0)));
-				originLocation.setLongitude(Double.parseDouble(cursor.getString(1)));
+				originLocation.setLatitude(cursor.getDouble(0));
+				originLocation.setLongitude(cursor.getDouble(1));
 				if (cursor.moveToNext() == false)
 					break;
 				// point B
-				destinationLocation.setLatitude(Double.parseDouble(cursor.getString(0)));
-				destinationLocation.setLongitude(Double.parseDouble(cursor.getString(1)));
+				destinationLocation.setLatitude(cursor.getDouble(0));
+				destinationLocation.setLongitude(cursor.getDouble(1));
 				double distance = originLocation.distanceTo(destinationLocation);
 				averageDistance += distance;
 			}
 		}
-		return averageDistance+"";
+		return averageDistance;
 	}
 
 	// method for calc average speed

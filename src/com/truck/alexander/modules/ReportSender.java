@@ -82,6 +82,16 @@ public class ReportSender {
 		int result = writeData(1,1, coordinateList);
 		if(result == 0) {
 			//db.execSQL("delete from coors"+ReportsService.currTripName);
+			// сохраним пройденный путь в отдельную таблицу
+		//	Cursor summCursor = db.rawQuery("SELECT SUM(CurrentAmount) FROM coors"+tripName, null);
+	     /*   if(mCursor.moveToFirst()) {
+	        return mCursor.getDouble(0);
+	    }*/
+			Cursor cursor = db.rawQuery("select x , y from coors"+tripName, null);
+			Double summ = dbOpenHelper.getAverageDistance(cursor);
+			db.execSQL("insert into summ values("+summ+")");
+			cursor.close();
+			// теперь смело чистим координаты			
 			db.execSQL("delete from coors"+tripName);			
 			final Calendar c = Calendar.getInstance();
 			ReportsService.lastSendedTime = c.get(Calendar.DAY_OF_MONTH)+"/"+ c.get(Calendar.MONTH)+"/"+c.get(Calendar.YEAR)+" "+
@@ -352,9 +362,6 @@ public class ReportSender {
 			return false;
 		}
 		else{
-			openDB();
-			dbOpenHelper.dropTables(db,tripName);
-			closeDB();
 			return true;
 		}
 	}
@@ -391,19 +398,21 @@ public class ReportSender {
 			switch (sendFlag) {			
 			// send start command
 			case 0:
+				handlerStatus(0);
 				if(rs.sendStart(1,id)){
 					openDB();
 					db.execSQL("update reports set sendstatus = 1 where id = "+ id);
 					sendFlag = 1;
 				}
 				else {
-					Toast.makeText(ct, "Some error occured", Toast.LENGTH_SHORT).show();
+					//Toast.makeText(ct, "Some error occured", Toast.LENGTH_SHORT).show();
 					sendFlag = -1;
 				}
 				break;
 			
 			// send coors
 			case 1:
+				handlerStatus(0);
 				if (rs.sendCoors(repTripName) == 0) {
 					openDB();
 					db.execSQL("update reports set sendstatus = 2 where id = "+id);
@@ -411,13 +420,14 @@ public class ReportSender {
 					sendFlag = 2;
 				}
 				else  {
-					Toast.makeText(ct, "Some error occured", Toast.LENGTH_SHORT).show();
+					//Toast.makeText(ct, "Some error occured", Toast.LENGTH_SHORT).show();
 					sendFlag = -1;
 				}
 				break;
 			
 			// send 'stop command, report's data
 			case 2:
+				handlerStatus(0);
 				if (rs.sendReport(repTripName)) {
 					openDB();
 					db.execSQL("update reports set sendstatus = 3 where id = "+id);
@@ -425,7 +435,7 @@ public class ReportSender {
 					sendFlag = 3;
 				}
 				else {
-					Toast.makeText(ct, "Some error occured", Toast.LENGTH_SHORT).show();
+					//Toast.makeText(ct, "Some error occured", Toast.LENGTH_SHORT).show();
 					sendFlag = -1;
 				}
 				break;
@@ -435,25 +445,25 @@ public class ReportSender {
 			}			
 		}
 		if( sendFlag == -1 ){
-			data.clear();
-			data.putInt("cmnd", 4);
-			sendReportHandler.sendMessage(changeTitle);
+			handlerStatus(4);
+			handlerStatus(5);
 			return false;
 		}
 		else{
 			openDB();
-			//dbOpenHelper.dropTables(db,tripName);
+			dbOpenHelper.dropTables(db,repTripName);				
 			closeDB();
+			handlerStatus(4);
 			return true;
 		}
 	}
 	
-	Message setBodyMessage(int cmnd){
+	void handlerStatus(int cmnd){
 		Message mmm = new Message();
 		Bundle messageData =  new Bundle();
 		messageData.putInt("cmnd", cmnd);
 		mmm.setData(messageData);
-		return mmm;
+		sendReportHandler.sendMessage(mmm);
 	}
 	
 	// FIX 

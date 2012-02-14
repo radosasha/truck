@@ -176,9 +176,7 @@ public class ReportsStorage extends Activity{
 				new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface arg0, int arg1) {
 						openDB();
-						Cursor cr = dbOpenHelper.select(db, "reports");
-						removeItem(item, cr);
-						cr.close();
+						removeItem(item);
 						closeDB();
 					}
 				});
@@ -196,7 +194,12 @@ public class ReportsStorage extends Activity{
 		public void run() {
 			try {
 				ReportSender rs = new ReportSender(ct);
-				rs.sendHistoryReport(item, rs,sendReportHandler);
+				boolean result = rs.sendHistoryReport(item, rs,sendReportHandler);
+				if(result){
+					openDB();
+					removeItem(item);
+					closeDB();
+				}
 			} catch (Exception e) {
 				e.printStackTrace();
 				Message stopPB = new Message();
@@ -251,7 +254,8 @@ public class ReportsStorage extends Activity{
 		}
 	};
 	
-	private void removeItem(int  itemNumber,Cursor cr) {
+	private void removeItem(int  itemNumber) {
+		Cursor cr = dbOpenHelper.select(db, "reports");
 		cr.moveToPosition(itemNumber);
 		String tableName = cr.getString(0); // report name
 		int id = cr.getInt(8); // report id

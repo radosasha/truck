@@ -36,11 +36,11 @@ public class ReceiveCoordinateModule extends Service{
 	 */
     static long SECOND = 1000; //in milliseconds
     //time between two coords receiving
-	public static long receiveFrequency = SECOND*30; //5 min
+	public static long receiveFrequency = SECOND*5; //5 min
 	//min distance between two coordinates
-	final long DISTANCE = 500;// in meters
+	final long DISTANCE = 50;// in meters
 	//max inflicity oc coords
-	final long INFELICITY = 5; //in meters
+	final long INFELICITY = 20; //in meters
 	
 	SimpleDateFormat timeFormatter;//date
 	
@@ -186,7 +186,7 @@ public class ReceiveCoordinateModule extends Service{
 	
 	private class GPSListener implements LocationListener {
 		public void onLocationChanged(Location location) {
-
+			Log.e("Coords Receiver", "RECEIVE COORDINATE");
 			// current point
 			double gpsX = location.getLatitude();
 			double gpsY = location.getLongitude();
@@ -203,7 +203,8 @@ public class ReceiveCoordinateModule extends Service{
 			insertBlock: synchronized (DBConnector.synchList) {
 				// if coars infelicity to long, abort coars data inserting
 				// 0.0 is an error situation
-				if (location.getAccuracy() > INFELICITY
+				float acc = location.getAccuracy();
+				if (acc > INFELICITY
 						|| location.getAccuracy() == 0.0)
 					break insertBlock;
 				openDB();

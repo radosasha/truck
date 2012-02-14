@@ -82,6 +82,12 @@ public final class R {
         public static final int list_divider=0x7f020003;
         public static final int my_drawable=0x7f020004;
         public static final int pattern=0x7f020005;
+        public static final int photo1=0x7f020006;
+        public static final int photo2=0x7f020007;
+        public static final int photo3=0x7f020008;
+        public static final int photo4=0x7f020009;
+        public static final int photo5=0x7f02000a;
+        public static final int photo6=0x7f02000b;
     }
     public static final class fueladd {
         public static final int cancel=0x7f150007;

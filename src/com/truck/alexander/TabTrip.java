@@ -122,7 +122,7 @@ public class TabTrip extends Activity{
 		//set new button listeners 
 		showdb = (Button) findViewById(R.test.showDB);
 		dbEdit = (EditText)findViewById(R.test.showtext);
-		//dbEdit.setVisibility(4);
+		dbEdit.setVisibility(4);
 		showdb.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
@@ -134,14 +134,17 @@ public class TabTrip extends Activity{
 					for(int y = 0;y<cr.getColumnCount();y++){
 						rep += cr.getString(y)+" ";
 					}
+					//double x = cr.getDouble(0);
+					//double y = cr.getDouble(1);
 					Log.e("row "+cr.getPosition(), rep);
+					//Log.e("row "+cr.getPosition(), x+" "+y);
 				}
 				cr.close();
 				closeDB();
 			}
 		});
-		//showdb.setClickable(false);
-		//showdb.setVisibility(4);
+		showdb.setClickable(false);
+		showdb.setVisibility(4);
 		refreshButtonListeners();		
 		
 		// statistic fields
@@ -207,8 +210,6 @@ public class TabTrip extends Activity{
 		@Override
 		public void run() {
 			try{
-			 locality = "Need GPS data";
-    		 countryName = "...";
     		openDB();
     		stat = dbOpenHelper.getStat(db);
     		try {
@@ -217,12 +218,14 @@ public class TabTrip extends Activity{
     		    //zaglushka
     			addresses = new LinkedList();
     			toast("Can't show current place. No connection.");
+    			locality = "Some error occured";
+    			countryName = "...";
     			//e.printStackTrace();
     		}
     		// if internet connection established
     		if (addresses.size() > 0){ 
-    			locality ="City: "+addresses.get(0).getLocality();
-    			countryName ="Country "+ addresses.get(0).getCountryName()+", State: "+addresses.get(0).getAdminArea();
+    			locality ="City: "+addresses.get(0).getLocality()+"\n";
+    			countryName ="State: "+addresses.get(0).getAdminArea()+"\nCountry: "+ addresses.get(0).getCountryName();
     		    Log.e("getLocality",locality);
     		    Log.e("getCountryName",countryName);
     		}
@@ -352,6 +355,7 @@ class ProgressThread extends Thread {
 				cursor.getString(6) + " , " + // send status
 				odomEnd + " , '" + 
 				dateEnd + "', null)";
+		cursor.close();
 		db.execSQL(sql);
 		Log.e("send report later", sql);
 	}
@@ -585,8 +589,9 @@ class ProgressThread extends Thread {
 	private void eraseClientFromTrip(boolean saveReport) {
 		
 		openDB();		
-		if(saveReport == true)saveReportOnClient(odomVal,currDate);
-		// save to reports if can't send in this moment
+		if(saveReport == true)saveReportOnClient(odomVal,currDate);		
+		// save to reports if can't send in this moment		
+		dbOpenHelper.dropTables(db,PageMainGUI.tripid);		
 		dbOpenHelper.deleteFrom(db, "tripinfo");
 		closeDB();
 		
